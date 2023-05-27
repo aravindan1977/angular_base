@@ -1,0 +1,59 @@
+@import "bootstrap/scss/bootstrap";
+.menu-item {
+  font-size: 1.5em;
+  
+  &.active {
+    > .menu-item-text {
+        font-weight: bold;
+        color:"#0557bb";
+        
+    }
+  }
+}
+
+
+
+.menu-item:hover {
+  background-color: #f8f9fa;
+  color: #dc3545;
+}
+
+.logout-text {
+  position: relative;
+  border-bottom: 1px dotted black;
+}
+
+.menu-item:hover .logout-text {
+  display: inline;
+}
+
+.hovertext {
+  position: relative;
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 80px; /* adjust as needed */
+  //background-color: rgb(229, 229, 229); /* set background color */
+  color: black;
+  text-align: center;
+  border-radius: 5px;
+  padding: 2px 2px; /* add padding to the top and bottom */
+  transition: opacity 1s ease-in-out;
+  font-size: 15px; /* set font size */
+
+  position: absolute;
+  z-index: 1;
+  left: 60%; /* set to center the element */
+  //top: -100%; /* adjust as needed to position above the text */
+  transform: translateX(-50%); /* center the element horizontally */
+}
+
+.hovertext:hover:before {
+  opacity: 1;
+  visibility: visible;
+  top: -30%; /* adjust as needed */
+}
+

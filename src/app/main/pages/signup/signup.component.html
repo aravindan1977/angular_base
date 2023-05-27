@@ -1,0 +1,183 @@
+<!-- <div class="d-flex flex-row justify-content-center bg-white h-100 p-3">
+  <div class="col-3 rounded bg-white">
+    <div class="d-flex flex-row align-items-center h-100">
+      <div [formGroup]="loginForm" (keyup.enter)="login()" class="col p-3">
+        <div class="d-flex flex-row mb-3 align-items-center">
+          <h6
+            class="flex-grow-1 fw-bold"
+            style="font-size: x-large; font-weight: 500"
+          >
+            Login
+          </h6>
+        </div>
+        <div class="w-100 pb-3">
+          <div class="input-group input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text rounded-0">Email</span>
+            </div>
+            <input
+              type="text"
+              class="form-control rounded-0"
+              formControlName="email"
+              placeholder="email"
+            />
+            <div
+              *ngIf="
+                loginForm.controls.email.invalid &&
+                (loginForm.controls.email.dirty ||
+                  loginForm.controls.email.touched)
+              "
+              class="py-1 px-2 mt-1"
+            >
+              <div
+                class="small text-danger"
+                *ngIf="loginForm.controls.email.errors?.['required']"
+              >
+                required
+              </div>
+              <div
+                class="small text-danger"
+                *ngIf="loginForm.controls.email.errors?.['email']"
+              >
+                invalid
+              </div>
+            </div>
+          </div>
+          <div class="input-group input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text rounded-0">Password</span>
+            </div>
+            <input
+              type="text"
+              class="form-control rounded-0"
+              formControlName="password"
+              placeholder="password"
+              type="password"
+            />
+            <div
+              *ngIf="
+                loginForm.controls.password.invalid &&
+                (loginForm.controls.password.dirty ||
+                  loginForm.controls.password.touched)
+              "
+              class="py-1 px-2 mt-1"
+            >
+              <div
+                class="small text-danger"
+                *ngIf="loginForm.controls.password.errors?.['required']"
+              >
+                required
+              </div>
+            </div>
+          </div>
+
+          <button
+            [disabled]="isLoading"
+            (click)="login()"
+            type="submit"
+            class="btn btn-outline-primary btn-lg rounded-0 w-100 mt-3"
+            style="font-weight: 700; font-size: medium"
+          >
+            Continue
+          </button>
+          <div class="h6 pt-5">
+            Don't have a login? <a routerLink="/signup">Signup</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+<div class="d-flex flex-row h-100 ">
+
+  <div class="col-sm-8 h-100 d-flex  align-items-center justify-content-center">
+    <img [src]="_fileservice.getStatic('/images/31.png')" class="img-fluid  " alt="" />
+  </div>
+
+  <!-- <div class="col-sm-4 "> -->
+  <div class="d-flex flex-row col-sm-4 justify-content-center bg-info h-100  overflow-auto align-items-center">
+    <div [formGroup]="signupForm">
+      <div class="d-flex flex-row mb-3 align-items-center justify-content-center">
+        <h6 class="flex-grow-1 fw-bold" style="font-size: x-large; font-weight: 500">
+          Signup
+        </h6>
+      </div>
+      <div class="w-100 pb-3">
+        <div class="mb-3">
+          <div class="input-group input-group-sm">
+            <span class="input-group-text bg-secondary text-primary" id="name">Name</span>
+            <input type="text" class="form-control" formControlName="name" placeholder="" />
+          </div>
+          <div *ngIf="
+            signupForm.controls.name.invalid &&
+            (signupForm.controls.name.dirty || signupForm.controls.name.touched)
+          " class="py-1 px-2 mt-1">
+            <div class="small text-danger" *ngIf="signupForm.controls.name.errors?.['required']">
+              required
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="input-group input-group-sm">
+            <span class="input-group-text bg-secondary text-primary" for="email" id="email">Email</span>
+            <input type="email" class="form-control" formControlName="email" placeholder="" />
+          </div>
+          <div *ngIf="
+            signupForm.controls.email.invalid &&
+            (signupForm.controls.email.dirty ||
+              signupForm.controls.email.touched)
+          " class="py-1 px-2 mt-1">
+            <div class="small text-danger" *ngIf="signupForm.controls.email.errors?.['required']">
+              required
+            </div>
+            <div class="small text-danger" *ngIf="signupForm.controls.email.errors?.['pattern']">
+              invalid
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="input-group input-group-sm">
+            <span class="input-group-text bg-secondary text-primary" for="password" id="password">Password</span>
+            <input type="password" class="form-control" formControlName="password" placeholder="" />
+          </div>
+          <div *ngIf="
+            signupForm.controls.password.invalid &&
+            (signupForm.controls.password.dirty ||
+              signupForm.controls.password.touched)
+          " class="py-1 px-2 mt-1">
+            <div class="small text-danger" *ngIf="signupForm.controls.password.errors?.['required']">
+              required
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="input-group input-group-sm">
+            <span class="input-group-text bg-secondary text-primary" for="confirmpassword" id="confirmpassword">Confirm
+              Password</span>
+            <input type="password" class="form-control" formControlName="confirmpassword" placeholder="" />
+          </div>
+          <div *ngIf="
+            signupForm.controls.confirmpassword.invalid &&
+            (signupForm.controls.confirmpassword.dirty ||
+              signupForm.controls.confirmpassword.touched)
+          " class="py-1 px-2 mt-1">
+            <div class="small text-danger" *ngIf="signupForm.controls.confirmpassword.errors?.['required']">
+              required
+            </div>
+          </div>
+        </div>
+        <button [disabled]="isLoading" (click)="signup()" type="button"
+          class="btn btn-outline-primary btn-lg rounded-0 w-100 mt-3" style="font-weight: 700; font-size: medium">
+          CONTINUE
+        </button>
+      </div>
+      <!-- </div> -->
+    </div>
+
+
+  </div>
+
+
+</div>
+--------------------

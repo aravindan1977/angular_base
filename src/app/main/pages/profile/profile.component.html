@@ -1,0 +1,72 @@
+<div class="p-3 h-100">
+  <div class="h-100 container-fluid">
+    <div class="row h-100">
+      <div
+        *ngIf="!isLoading"
+        class="col-3 shadow-sm border rounded me-3 h-100 p-3 d-flex flex-column bg-light"
+      >
+        <div class="d-flex flex-row mb-3 align-items-center">
+          <h6 class="flex-grow-1 fw-bold">My Account</h6>
+        </div>
+
+        <div class="row pb-3 d-flex align-items-center justify-content-center">
+          <div class="col-3">
+            <div
+              class="h5 rounded-circle d-flex align-items-center justify-content-center bg-secondary"
+              style="height: 60px; width: 60px"
+            >
+              {{ profileName }}
+            </div>
+          </div>
+          <div class="col-9">
+            <div class="fw-bold h6 pt-1">{{ profile.name }}</div>
+            <div class="text-muted">{{ profile.email }}</div>
+          </div>
+        </div>
+        <div
+          class="d-flex flex-column flex-grow-1 overflow-auto"
+          style="height: 0px"
+        >
+          <div class="h-100 overflow-auto pe-3" style="height: 0px">
+            <div class="mb-3 border rounded border bg-white shadow-sm p-3">
+              <div class="text-muted small">Name</div>
+              <div class="">{{ profile.name }}</div>
+              <div class="text-muted small mt-2">Email</div>
+              <div class="">{{ profile.email }}</div>
+
+              <div
+                class="border-start border-end border-top rounded-top bg-white shadow-sm p-3 mt-3"
+              >
+                <div class="text-muted pb-2 small">Roles</div>
+                <div
+                  class="col d-flex align-items-center justify-content-start"
+                >
+                  <div class="pe-2">
+                    <span class="badge text-bg-secondary text-primary p-2"
+                      >User</span
+                    >
+                  </div>
+                  <div class="pe-3" *ngIf="profile.issystem">
+                    <span class="badge text-bg-secondary text-primary p-2"
+                      >System</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <button
+                class="w-100 btn btn-primary shadow-sm mb-2"
+                style="
+                  border-top-left-radius: 0px;
+                  border-top-right-radius: 0px;
+                "
+                (click)="logout()"
+              >
+                Sign out
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

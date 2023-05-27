@@ -1,0 +1,178 @@
+<form #personalDataForm="ngForm">
+  <div class="row g-0 ">
+    <div class="col-3 pe-3">
+      <div class="pb-2">
+        <label for="firstnamee" class="form-label text-muted mb-1 small">First name</label>
+        <input type="text" class="form-control" id="firstname" placeholder="First name"
+          [(ngModel)]="data.personaldata.firstname" name="firstname" required />
+
+      </div>
+      <div class="pb-2">
+        <label for="lastnamee" class="form-label text-muted mb-1 small">Last name</label>
+        <input type="text" class="form-control" id="lastname" placeholder="Last name"
+          [(ngModel)]="data.personaldata.lastname" name="lastname" />
+      </div>
+      <div class="pb-2">
+        <label for="UCI" class="form-label text-muted mb-1 small">UCI number</label>
+        <input type="text" class="form-control" id="UCI" placeholder="UCI number" [(ngModel)]="data.personaldata.UCI"
+          name="UCI" />
+      </div>
+      <div class="pb-2">
+        <label for="dob" class="form-label text-muted mb-1 small">DOB</label>
+        <input type="date" class="form-control " id="dob" placeholder="DOB"
+          [ngModel]="data.personaldata.dob | date : 'yyyy-MM-dd'" (ngModelChange)="data.personaldata.dob = $event"
+          name="dob" />
+      </div>
+
+      <div class="pb-2">
+        <label for="gender" class="form-label text-muted mb-1 small ">Gender</label>
+        <select name="gender" [(ngModel)]="data.personaldata.gender" class="form-select cursor-pointer"
+          aria-label="Default select example">
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+          <option value="3">Other</option>
+        </select>
+      </div>
+
+      <div class="pb-2">
+        <label for="gender" class="form-label text-muted mb-1 small ">Zodiac sign</label>
+        <select name="zodiacsign" [(ngModel)]="data.personaldata.zodiacsign" class="form-select cursor-pointer"
+          aria-label="Default select example" id="zodiacsign" placeholder="zodiacsign">
+          <option value="Aquarius">Aquarius</option>
+          <option value="Pisces">Pisces</option>
+          <option value="Aries">Aries</option>
+          <option value="Taurus">Taurus</option>
+          <option value="Gemini">Gemini</option>
+          <option value="Cancer">Cancer</option>
+          <option value="Leo">Leo</option>
+          <option value="Virgo">Virgo</option>
+          <option value="Libra">Libra</option>
+          <option value="Scorpio">Scorpio</option>
+          <option value="Sagittarius">Sagittarius</option>
+          <option value="Capricorn">Capricorn</option>
+        </select>
+
+
+      </div>
+
+
+      <div class="pb-2">
+        <label for="parentsstatus" class="form-label text-muted mb-1 small ">Parents's Status</label>
+        <select name="parentsstatus" [(ngModel)]="data.personaldata.parentsstatus" class="form-select cursor-pointer"
+          aria-label="Default select example" id="parentsstatus" placeholder="parentsstatus">
+          <option value="Staying Together">Staying Together</option>
+          <option value="Separated">Separated</option>
+          <option value="Divorced">Divorced</option>
+          <option value="Single Parent">Single Parent</option>
+        </select>
+      </div>
+      
+
+    </div>
+
+
+
+    <div class="col-3 pe-3 ">
+      <div class="pb-2">
+        <label for="fathername" class="form-label text-muted mb-1 small">Father's Name</label>
+        <input name="fathername" type="text" class="form-control" id="fathername" placeholder="fathername"
+          [(ngModel)]="data.personaldata.fathername" />
+      </div>
+
+      <div class="pb-2">
+        <label for="mothername" class="form-label text-muted mb-1 small">Mother's Name</label>
+        <input name="mothername" type="text" class="form-control" id="mothername" placeholder="mothername"
+          [(ngModel)]="data.personaldata.mothername" />
+      </div>
+
+      <div class="pb-2">
+        <label for="address" class="form-label text-muted mb-1 small">Address</label>
+        <textarea name="address" style="height: 186px;" type="text" class="form-control" id="address"
+          placeholder="address" [(ngModel)]="data.personaldata.address"></textarea>
+      </div>
+      
+      <div class="pb-2">
+        <label for="zip_code" class="form-label text-muted mb-1 small">Zip Code</label>
+        <input name="zip_code" type="text" class="form-control" id="zip_code" placeholder="zip_code"
+          [(ngModel)]="data.personaldata.zip_code" />
+      </div>
+      <div class="pb-2">
+        <label for="State" class="form-label text-muted mb-1 small">State</label>
+        <input name="State" type="text" class="form-control" id="State" placeholder="State"
+          [(ngModel)]="data.personaldata.State" />
+      </div>
+
+
+    </div>
+
+
+    <div class="col-3 ">
+      <div class="pb-2">
+        <label for="Email" class="form-label text-muted mb-1 small">Email</label>
+        <input name="email" type="email" class="form-control" id="Email" placeholder="Enter your email"
+          [(ngModel)]="data.personaldata.email" required email
+          (ngModelChange)="validateEmail()" />
+          <div class="small text-danger" *ngIf="!isEmailValid">
+            Invalid mail
+        </div>
+      </div>
+
+      <div class="pb-2">
+        <label for="Mobile number" class="form-label text-muted mb-1 small">Mobile number</label>
+        <input name="Mobilenumber" type="text" class="form-control" id="Mobilenumber" placeholder="Mobile number"
+          [(ngModel)]="data.personaldata.mobilenumber"  (input)="formatPhoneNumber($event)"
+          (ngModelChange)="validateMobileNumber() "/>
+          <div class="small text-danger" *ngIf="!isMobileValid">
+            Invalid Number
+        </div>
+      </div>
+
+      <div class="pb-2">
+        <label for="Alternate Mobile number" class="form-label text-muted mb-1 small">Alternate Mobile number</label>
+        <input name="alternate_number" type="text" class="form-control" id="AlternateNumber"
+          placeholder="Alternate Mobile number" [(ngModel)]="data.personaldata.alternatemobilenumber" 
+          (ngModelChange)="validatealternatemobilenumber()" (input)="formatalternatePhoneNumber($event)"/>
+          <div class="small text-danger" *ngIf="!isalternatemobilenumber">
+            Invalid Number
+        </div>
+      </div>
+
+      <div class="pb-2 ">
+        <label for="Alternate Mobile number" class="form-label text-muted mb-1 small">Select number to receive
+          message</label>
+
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="Mobile number" name="check1"
+            [(ngModel)]="data.personaldata.sendmessagemobilenumber"
+            [checked]="data.personaldata.sendmessagemobilenumber" (click)="checksendmessagemobilenumber()">
+          <label class="form-check-label" for=" Mobile number">
+            Mobile number
+          </label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="Alternate Mobile number" name="check2"
+            [(ngModel)]="data.personaldata.sendmessagealternatenumber"
+            [checked]="data.personaldata.sendmessagealternatenumber" (click)="checksendmessagealternatenumber()">
+
+          <label class="form-check-label" for="Alternate Mobile number">
+            Alternate Mobile number
+          </label>
+        </div>
+
+
+
+      </div>
+
+
+      <div class="pb-2">
+        <label for="Diagnosis" class="form-label text-muted mb-1 small">Diagnosis</label>
+        <textarea name="Diagnosis" style="height: 173px;" type="text" class="form-control" id="Diagnosis"
+          placeholder="Diagnosis" [(ngModel)]="data.personaldata.diagnosis"></textarea>
+      </div>
+
+    </div>
+
+  </div>
+</form>

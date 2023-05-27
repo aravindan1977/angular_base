@@ -1,0 +1,27 @@
+.my-background {
+    background-image: url('../../../../assets/images/background_hand.png');
+    // background-repeat: no-repeat;
+    object-fit: fill;
+    background-color: #6b5800;
+}
+
+.leftcircle {
+    border-top-left-radius: 7em;
+    border-bottom-left-radius: 7em;
+
+}
+
+a:link {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+.img-dimmed {
+    opacity: 0.4;
+  }
+
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4c4c4c+0,595959+12,666666+25,474747+39,2c2c2c+50,000000+51,111111+60,2b2b2b+76,1c1c1c+91,131313+100;Black+Gloss+%231 */
+.gradient {
+    background: linear-gradient(to top, #000000, #808080);
+    
+}
